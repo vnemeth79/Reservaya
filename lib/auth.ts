@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           role: user.role,
           salonId: user.salonId,
-          salonSlug: user.salon?.slug,
+          salonSlug: user.salon?.slug || null,
           staffMemberId: user.staffMemberId,
         }
       },

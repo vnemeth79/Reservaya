@@ -13,7 +13,9 @@ export default async function StaffDashboard() {
   // For staff, show only their bookings; for owners, show all
   const staffFilter = user.staffMemberId
     ? { staffId: user.staffMemberId }
-    : { salonId: user.salonId }
+    : user.salonId 
+      ? { salonId: user.salonId }
+      : {}
 
   const todayBookings = await prisma.booking.findMany({
     where: {
@@ -103,7 +105,7 @@ export default async function StaffDashboard() {
         ) : (
           <div className="space-y-4">
             {todayBookings.map((booking) => (
-              <BookingCard key={booking.id} booking={booking} />
+              <BookingCard key={booking.id} booking={booking as any} />
             ))}
           </div>
         )}

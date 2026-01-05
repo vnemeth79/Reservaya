@@ -50,8 +50,8 @@ export default async function CalendarioPage() {
       </div>
 
       <CalendarView
-        bookings={bookings}
-        staffMembers={staffMembers}
+        bookings={bookings as any}
+        staffMembers={staffMembers as any}
         weekDays={weekDays}
       />
     </div>
