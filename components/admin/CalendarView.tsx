@@ -5,7 +5,7 @@ import { es } from 'date-fns/locale'
 
 interface Booking {
   id: string
-  bookingDatetime: string
+  bookingDatetime: Date | string
   customerName: string
   status: string
   staff: { id: string; name: string }
